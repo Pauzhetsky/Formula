@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Калькулятор стоимости трикотажа</title>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<h1>Калькулятор стоимости производства</h1>
+
+		<div class="form-group">
+			<label for="product-type">Тип изделия:</label>
+			<select id="product-type">
+				<option value="tshirt">Футболка</option>
+				<option value="hoodie">Толстовка</option>
+				<option value="shorts">Шорты</option>
+				<option value="shirt">Рубашка</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="fabric-type">Тип ткани:</label>
+			<select id="fabric-type">
+				<option value="cotton">Хлопок</option>
+				<option value="polyester">Полиэстер</option>
+				<option value="blend">Смесовая</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="print-type">Тип нанесения:</label>
+			<select id="print-type">
+				<option value="none">Без нанесения</option>
+				<option value="silk">Шелкография</option>
+				<option value="embroidery">Вышивка</option>
+				<option value="sublimation">Сублимация</option>
+			</select>
+		</div>
+
+		<div class="form-group" id="colors-group" style="display: none">
+			<label for="colors">Количество цветов:</label>
+			<input type="number" id="colors" min="1" value="1" />
+		</div>
+
+		<div class="form-group">
+			<label for="area">Площадь нанесения (см²):</label>
+			<input type="number" id="area" min="0" value="0" />
+		</div>
+
+		<div class="form-group">
+			<label> <input type="checkbox" id="zipper" /> Молния (+150 руб) </label>
+		</div>
+
+		<div class="form-group">
+			<label> <input type="checkbox" id="pocket" /> Карман (+100 руб) </label>
+		</div>
+
+		<div class="form-group">
+			<label for="margin">Наценка (%):</label>
+			<input type="number" id="margin" min="0" value="30" />
+		</div>
+
+		<button onclick="calculateCost()">Рассчитать стоимость</button>
+
+		<div id="result">
+			<h3>Итоговая стоимость:</h3>
+			<div id="total-cost" style="font-size: 24px; font-weight: bold"></div>
+
+			<div class="cost-breakdown">
+				<h4>Состав стоимости:</h4>
+				<div id="breakdown"></div>
+			</div>
+		</div>
+		<script src="/furmula.js"></script>
+	</body>
+</html>
